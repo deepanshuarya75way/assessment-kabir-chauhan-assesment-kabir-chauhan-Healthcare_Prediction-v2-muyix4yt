@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkinson’s Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1>Parkinson’s Disease Prediction</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+            <a href="{{ url_for('heart') }}">Heart Disease</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="form-section">
+            <h2 class="title">Voice Measurement Details</h2>
+            <p class="description">
+                Enter the patient’s recorded voice measurement data below. These features help detect small tremors or irregularities in vocal patterns that may indicate Parkinson’s disease.
+            </p>
+            
+            <br>
+            
+            <h1>WORK IN PROGRESS</h1>
+
+            <br>
+
+        <section class="plot-section">
+            <h2 class="title">Model Insights</h2>
+            <br>
+            <div class="plot-grid">
+
+                <div class="plot-card">
+                    <h3>Confusion Matrix</h3>
+                    <img src="{{ url_for('plots', filename='parkinsons_cm.png') }}" alt="Confusion Matrix">
+                </div>
+
+                <div class="plot-card">
+                    <h3>Feature Importance</h3>
+                    <img src="{{ url_for('plots', filename='parkinsons_feature.png') }}" alt="Feature Importance">
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© Healthcare Prediction Project</p>
+        <p>By The KcKabir</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Disease Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="header">
+        <h1>AI Powered Healthcare Prediction</h1>
+        <nav>
+            <a href="diabetes">Diabetes</a>
+            <a href="heart">Heart</a>
+            <a href="parkinson">Parkinson</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+             <h2>Welcome to the Healthcare Prediction System</h2>
+            <p>
+                This intelligent healthcare assistant uses Machine Learning models to predict the likelihood of 
+                common diseases based on your health data. It currently supports prediction for 
+                <strong>Diabetes</strong>, <strong>Heart Disease</strong>, and <strong>Parkinson's Disease</strong>.
+            </p>
+            <p>
+                Early detection is key to prevention and treatment. This system helps patients and healthcare 
+                professionals take proactive steps towards better health by providing accurate predictions, 
+                visual insights, and educational information about each disease.
+            </p>
+        </section>
+
+        <section class="disease-section">
+            <h2>Choose a Prediction Model</h2>
+            <div class="card-grid">
+
+                <div class="card">
+                    <h3>🩸 Diabetes Prediction</h3>
+                    <p>
+                        Diabetes is a chronic condition where the body cannot properly process sugar (glucose) 
+                        due to insufficient insulin production or resistance. Left unchecked, it can damage 
+                        vital organs and increase the risk of heart disease, kidney failure, and vision problems.
+                    </p>
+                    <h4>Common Symptoms:</h4>
+                    <ul>
+                        <li>Frequent urination and excessive thirst</li>
+                        <li>Unexplained weight loss</li>
+                        <li>Fatigue and weakness</li>
+                        <li>Slow-healing wounds and frequent infections</li>
+                        <li>Blurred vision</li>
+                    </ul>
+                    <a href="diabetes" class="btn">Go to Diabetes</a>
+                </div>
+
+                <div class="card">
+                    <h3>❤️ Heart Disease Prediction</h3>
+                    <p>
+                        Heart disease encompasses conditions affecting the heart and blood vessels, including 
+                        coronary artery disease, heart attacks, and arrhythmias. Early detection reduces the 
+                        risk of severe complications and improves long-term health outcomes.
+                    </p>
+                    <h4>Common Symptoms:</h4>
+                    <ul>
+                        <li>Chest pain, pressure, or tightness</li>
+                        <li>Shortness of breath</li>
+                        <li>Fatigue and weakness</li>
+                        <li>Swelling in the legs, ankles, or feet</li>
+                        <li>Irregular heartbeat or palpitations</li>
+                    </ul>
+                    <a href="heart" class="btn">Go to Heart Disease</a>
+                </div>
+
+                <div class="card">
+                    <h3>🧠 Parkinson’s Disease Prediction</h3>
+                    <p>
+                        Parkinson’s Disease is a progressive neurological disorder that affects movement and 
+                        coordination. Symptoms often start subtly but worsen over time. Early detection allows 
+                        timely interventions that can significantly improve quality of life.
+                    </p>
+                    <h4>Common Symptoms:</h4>
+                    <ul>
+                        <li>Tremors in hands, fingers, or limbs</li>
+                        <li>Muscle stiffness and slowed movement</li>
+                        <li>Balance and coordination problems</li>
+                        <li>Changes in speech or handwriting</li>
+                        <li>Reduced facial expressions</li>
+                    </ul>
+                    <a href="parkinson" class="btn">Go to Parkinson’s</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="about">
+            <h2>About the Project</h2>
+            <p>
+                This project is built using <strong>Flask</strong> for the web interface and <strong>Machine Learning</strong> 
+                models for prediction. Each disease model is trained on real-world datasets and evaluated using 
+                metrics such as accuracy, precision, recall, and F1 score.
+            </p>
+            <p>
+                The system is designed for educational purposes and as a tool for early awareness. It allows 
+                users to enter simple health parameters and receive predictions, along with visual insights like 
+                confusion matrices and feature importance charts.
+            </p>
+            <p>
+                By combining machine intelligence with clear, understandable information about symptoms and effects, 
+                this project encourages proactive healthcare and informed decisions.
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© Healthcare Prediction Project</p>
+        <p>By The KcKabir</p>
+    </footer>
+</body>
+</html>

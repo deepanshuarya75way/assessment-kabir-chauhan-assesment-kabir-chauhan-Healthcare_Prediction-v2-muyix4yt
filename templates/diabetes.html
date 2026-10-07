@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1>Diabetes Prediction</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('heart') }}">Heart Disease</a>
+            <a href="{{ url_for('parkinson') }}">Parkinson’s Disease</a>
+        </nav>
+
+    </header>
+
+    <main class="container">
+
+        <section class="form-section">
+
+            <h2 class="title">Enter Patient Details</h2>
+            <form method="POST" class="prediction-form">
+                
+                <div class="input-form">
+                    <label>Pregnancies </label>
+                    <input step="any" type="number" name="Pregnancies" placeholder="Pregnancies" required>
+                </div>
+                
+                <div class="input-form">
+                    <label>Glucose</label>
+                    <input type="number" name="Glucose" placeholder="Glucose" step="any" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Blood Pressure</label>
+                    <input type="number" name="BloodPressure" placeholder="BP" step="any" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Skin Thickness</label>
+                    <input type="number" name="SkinThickness" placeholder="Skin Thickness" step="any" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Insulin</label>
+                    <input type="number" name="Insulin" placeholder="Insulin" step="any" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Body Mass Index</label>
+                    <input type="number" name="BMI" placeholder="BMI" step="any" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Diabetes Pedigree Function</label>
+                    <input type="number" name="DiabetesPedigreeFunction" placeholder="DPF" step="any" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Age</label>
+                    <input type="number" name="Age" placeholder="Age" step="any" required>
+                </div>
+
+                <button type="submit" class="btn">Predict</button>
+            </form>
+        </section>
+
+        {% if result %}
+        <section class="result-section">
+            <h2>Prediction Result</h2>
+            <div class="result-box {{ result_class }}">
+                {{ result }}
+            </div>
+        </section>
+        {% endif %}
+
+        <br>
+        <br>
+
+        <section class="plot-section">
+            <h2 class="title">Model Insight</h2>
+            <br>
+            <div class="plot-grid">
+
+                <div class="plot-card">
+                    <h3>Confusing Matrix</h3>
+                    <img src="{{ url_for('plots', filename='diabetes_cm.png') }}" alt="Confusion Matrix">
+                </div>
+
+                <div class="plot-card">
+                    <h3>Feature Importance</h3>
+                    <img src="{{ url_for('plots', filename='diabetes_features.png') }}" alt="Feature Importance">
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© Healthcare Prediction Project</p>
+        
+        <p>By The KcKabir</p>
+    </footer>
+
+</body>
+</html>

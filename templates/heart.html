@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1>Heart Disease Prediction</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('diabetes') }}">Diabetes</a>
+            <a href="{{ url_for('parkinson') }}">Parkinson’s Disease</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="form-section">
+            <h2 class="title">Enter Patient Details</h2>
+
+            <form method="POST" class="prediction-form">
+                
+                <div class="input-form">
+                    <label>Age</label>
+                    <input type="number" name="age" placeholder="Age" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Sex (1 = Male, 0 = Female)</label>
+                    <input type="number" name="sex" placeholder="Sex" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Chest Pain Type (0–3)</label>
+                    <input type="number" name="cp" placeholder="Chest Pain Type" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Resting Blood Pressure</label>
+                    <input type="number" name="trestbps" placeholder="Resting BP" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Cholesterol</label>
+                    <input type="number" name="chol" placeholder="Cholesterol" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Fasting Blood Sugar &gt; 120 mg/dl (1 = True, 0 = False)</label>
+                    <input type="number" name="fbs" placeholder="Fasting Blood Sugar" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Resting ECG (0–2)</label>
+                    <input type="number" name="restecg" placeholder="Rest ECG" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Max Heart Rate Achieved</label>
+                    <input type="number" name="thalach" placeholder="Max Heart Rate" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Exercise Induced Angina (1 = Yes, 0 = No)</label>
+                    <input type="number" name="exang" placeholder="Exercise Angina" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Oldpeak (ST Depression)</label>
+                    <input type="number" name="oldpeak" placeholder="Oldpeak" step="any" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Slope (0–2)</label>
+                    <input type="number" name="slope" placeholder="Slope" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Ca (Number of Major Vessels 0–3)</label>
+                    <input type="number" name="ca" placeholder="Ca" required>
+                </div>
+
+                <div class="input-form">
+                    <label>Thal (0 = Normal, 1 = Fixed Defect, 2 = Reversible Defect)</label>
+                    <input type="number" name="thal" placeholder="Thal" required>
+                </div>
+
+                <button type="submit" class="btn">Predict</button>
+            </form>
+        </section>
+
+        {% if result %}
+        <section class="result-section">
+            <h2>Prediction Result</h2>
+            <div class="result-box {{ result_class }}">
+                {{ result }}
+            </div>
+        </section>
+        {% endif %}
+
+        <br>
+        <br>
+
+        <section class="plot-section">
+            <h2 class="title">Model Insight</h2>
+            <br>
+            <div class="plot-grid">
+
+                <div class="plot-card">
+                    <h3>Confusion Matrix</h3>
+                    <img src="{{ url_for('plots', filename='heartdisease_cm.png') }}" alt="Confusion Matrix">
+                </div>
+
+                <div class="plot-card">
+                    <h3>Feature Importance</h3>
+                    <img src="{{ url_for('plots', filename='heartdisease_features.png') }}" alt="Feature Importance">
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© Healthcare Prediction Project</p>
+        
+        <p>By The KcKabir</p>
+    </footer>
+
+</body>
+</html>
